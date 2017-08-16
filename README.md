@@ -1,3 +1,5 @@
+Uses a recursive function.
+
 Give this program 2 strings, and it will find substrings that are common to both strings. It will then calculate the the ASCII sum of the characters removed from both strings to create the substring, and output the smallest sum.
 
 What does that mean?
