@@ -1,7 +1,7 @@
-This program returns the smallest ASCII value difference between two strings inorder to make them the same.
-What does that mean?
+Give this program 2 strings, and it will find substrings that are common to both strings. It will then calculate the the ASCII sum of the characters removed from both strings to create the substring, and output the smallest sum.
 
-You could make 'cat' and 'at' the same, by removing the 'c'. The ASCII value would be 99.
+What does that mean?
+You could make 'cat' and 'at' the same, by removing the 'c'. The ASCII value would be 99 (c).
 You could also remove 'ac' and 'a' so that both final strings would be 't', but the sum of the ASCII values would be greater than 99.
 
 Here's another example.
