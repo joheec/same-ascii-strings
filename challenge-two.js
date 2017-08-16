@@ -12,9 +12,9 @@ const addStringDiff = (string1, string2) => {
 
 function findSubStringSum(shorter, longer) {
   if (shorter.length == 1) {
-    return getAsciiValue(shorter);
+    return longer.indexOf(shorter) > -1 ? getAsciiValue(shorter) : 0;
   } else if (longer.indexOf(shorter) < 0) {
-    findSubStringSum(shorter.slice(0, -1), longer);
+    return findSubStringSum(shorter.slice(0, -1), longer);
   } else {
     return getAsciiSum(shorter);
   }
@@ -23,12 +23,34 @@ function findSubStringSum(shorter, longer) {
 const testAddStringDiff = (str1, str2, diffString) => {
   const sumDiffString = getAsciiSum(diffString);
   const calcSumDiffString = addStringDiff(str1, str2);
-  console.log(calcSumDiffString === sumDiffString ? `Passed your test: ${sumDiffString}.` : `Failed your test. Sorry: ${calcSumDiffString} is suppoed to be ${sumDiffString}`);
+  console.log(calcSumDiffString === sumDiffString ? `Passed your test: ${sumDiffString}.` : `Failed your test. Sorry: ${calcSumDiffString} is supposed to be ${sumDiffString}`);
 };
 
 testAddStringDiff('cat', 'at', 'c');
 testAddStringDiff('stand', 'standing', 'ing');
 testAddStringDiff('abandon', 'land', 'ablon');
+testAddStringDiff('maru', 'miyu', 'marmiy');
+testAddStringDiff('justin', 'dj', 'ustind');
+testAddStringDiff('girlfriend', 'agony', 'girlfriedagoy');
+
+function getLargerValue(a, b) {
+  return a > b ? a : b;
+}
+
+function createGraph(string) {
+  return string.split('').map(char => ({char, sum: 0}));
+}
+
+function getAsciiSum(string) {
+  return string.split('').map(getAsciiValue).reduce(getSum, 0);
+}
+
+function getAsciiValue(char) {
+  return char.charCodeAt(0);
+}
+function getSum(total, value) {
+  return total + value;
+}
 
 function getLargerValue(a, b) {
   return a > b ? a : b;
