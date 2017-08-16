@@ -52,21 +52,3 @@ function getSum(total, value) {
   return total + value;
 }
 
-function getLargerValue(a, b) {
-  return a > b ? a : b;
-}
-
-function createGraph(string) {
-  return string.split('').map(char => ({char, sum: 0}));
-}
-
-function getAsciiSum(string) {
-  return string.split('').map(getAsciiValue).reduce(getSum, 0);
-}
-
-function getAsciiValue(char) {
-  return char.charCodeAt(0);
-}
-function getSum(total, value) {
-  return total + value;
-}
